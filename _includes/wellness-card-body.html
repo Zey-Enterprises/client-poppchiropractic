@@ -1,8 +1,8 @@
 <div>
-  <h3 id="{{ include.item.id }}-title">{{ include.item.title | escape }}{% if include.linked and include.item.phone == nil %} <span class="wellness-arrow" aria-hidden="true">↗</span>{% endif %}</h3>
+  <h3 id="{{ include.item.id }}-title">{{ include.item.title | escape }}{% if include.linked and include.phone == nil %} <span class="wellness-arrow" aria-hidden="true">↗</span>{% endif %}</h3>
   <p>{{ include.item.description | escape }}</p>
-  {% if include.item.phone %}
-  <p class="wellness-phone"><img src="{{ '/assets/vendor/fontawesome-free-6.7.2/phone.svg' | relative_url }}" width="16" height="16" alt=""> {{ include.item.phone | escape }}</p>
+  {% if include.phone %}
+  <p class="wellness-phone"><img src="{{ '/assets/vendor/fontawesome-free-6.7.2/phone.svg' | relative_url }}" width="16" height="16" alt=""> <span>{% if include.phone_owner %}{{ include.phone_owner | escape }}: {% endif %}{{ include.phone | escape }}</span></p>
   {% endif %}
   {% if include.item.note %}<p class="wellness-note">{{ include.item.note | escape }}</p>{% endif %}
 </div>

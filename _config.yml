@@ -6,7 +6,6 @@ timezone: America/Denver
 lang: en-US
 robots: noindex, nofollow
 integrations_live: false
-patient_forms_review: false
 theme: null
 include: [_pages, _redirects, _files]
 exclude:
@@ -27,6 +26,7 @@ exclude:
   - DESIGN.md
   - PROJECT_STATUS.md
   - private
+  - _data/local_preview.yml
   - reference-implementations
   - reference-scrape
   - raw

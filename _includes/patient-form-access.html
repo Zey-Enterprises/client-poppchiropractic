@@ -1,12 +1,4 @@
-{%- assign patient_forms_review = false -%}
-{%- if site.patient_forms_review == true and site.host == '127.0.0.1' -%}
-  {%- assign patient_forms_review = true -%}
-{%- endif -%}
 {%- assign show_patient_form = false -%}
 {%- if include.form.provider_url -%}
-  {%- if patient_forms_review -%}
-    {%- assign show_patient_form = true -%}
-  {%- elsif site.integrations_live == true and include.form.authorization == 'approved' -%}
-    {%- assign show_patient_form = true -%}
-  {%- endif -%}
+  {%- assign show_patient_form = true -%}
 {%- endif -%}

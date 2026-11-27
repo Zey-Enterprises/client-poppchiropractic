@@ -22,10 +22,18 @@ layout: default
         {% for item in resources %}
         {% assign primary = item.links | where: 'primary', true | first %}
         {% if item.links.size == 1 %}{% assign primary = item.links.first %}{% endif %}
+        {% assign primary_url = primary.url %}
+        {% assign phone = item.phone %}
+        {% assign phone_owner = nil %}
+        {% if item.contact == 'practice' %}
+          {% assign primary_url = site.data.practice.phone_href | prepend: 'tel:' %}
+          {% assign phone = site.data.practice.phone %}
+          {% assign phone_owner = 'Popp Chiropractic' %}
+        {% endif %}
         <article class="wellness-card" id="{{ item.id }}">
-          {% if primary %}
-            <a class="wellness-card-body wellness-primary" href="{{ primary.url | escape }}" {% assign primary_scheme = primary.url | slice: 0, 4 %}{% if primary_scheme == 'tel:' %}aria-label="Call {{ item.title | escape }} at {{ item.phone | escape }}"{% else %}aria-labelledby="{{ item.id }}-title"{% endif %}{% if primary.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
-              {% include wellness-card-body.html item=item linked=true %}
+          {% if primary_url %}
+            <a class="wellness-card-body wellness-primary" href="{{ primary_url | escape }}"{% if phone_owner %} aria-label="Call {{ phone_owner | escape }} at {{ phone | escape }} about {{ item.title | escape }}"{% elsif phone %} aria-label="Call {{ item.title | escape }} at {{ phone | escape }}"{% else %} aria-labelledby="{{ item.id }}-title"{% endif %}{% if primary_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+              {% include wellness-card-body.html item=item linked=true phone=phone phone_owner=phone_owner %}
             </a>
           {% else %}
             <div class="wellness-card-body">{% include wellness-card-body.html item=item %}</div>
@@ -33,7 +41,7 @@ layout: default
           {% if item.links.size > 1 %}
           <ul class="wellness-links">
             {% for link in item.links %}
-              {% unless link.url == primary.url %}<li><a href="{{ link.url | escape }}"{% if link.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label | escape }}</a></li>{% endunless %}
+              {% unless link.url == primary_url %}<li><a href="{{ link.url | escape }}"{% if link.url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ link.label | escape }}</a></li>{% endunless %}
             {% endfor %}
           </ul>
           {% endif %}

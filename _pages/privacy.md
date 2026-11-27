@@ -13,4 +13,4 @@ Site search runs in your browser. The website’s messaging and newsletter contr
 
 ## Clinical privacy
 
-For questions about your health information, see [HIPAA documentation](/patients/hipaa-form/) or call the practice for the current Notice of Privacy Practices.
+For questions about your health information, see [HIPAA documentation](/patients/#hipaa-documentation) or call the practice for the current Notice of Privacy Practices.

@@ -18,22 +18,27 @@ layout: default
   </section>
   <section id="forms" class="hub-section">
     <h2>Patient forms</h2>
-    <p>For help completing paperwork or acknowledging the privacy notice, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>.</p>
     {% include patient-form-access.html %}
-    {% if patient_forms_review %}<p>Form demonstration. Please leave all fields blank and do not submit a form.</p>{% endif %}
+
     {% assign has_active_patient_form = false %}
     <ul class="patient-form-list">
       {% for form in site.data.forms %}
-      <li class="patient-form-row">
+      <li class="patient-form-row" id="{{ form.id | escape }}">
         <strong>{{ form.title | escape }}</strong>
         <p>{{ form.purpose | escape }}</p>
-        <div class="actions">
-          {% include patient-form-link.html form=form %}
-          {% if show_patient_form %}{% assign has_active_patient_form = true %}{% endif %}
-        </div>
+        {% capture form_action %}{% include patient-form-link.html form=form %}{% endcapture %}
+        {% if show_patient_form %}
+          {% assign has_active_patient_form = true %}
+          <div class="actions">{{ form_action }}</div>
+        {% else %}
+          {% assign has_unavailable_patient_form = true %}
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
+    {% if has_unavailable_patient_form %}
+      <p>For paperwork that is unavailable online, or for help with a form, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>.</p>
+    {% endif %}
   </section>
   <section class="hub-section" id="location">
     <h2>Location and contact</h2>

@@ -179,13 +179,15 @@
   category: "nutrition"
   title: "Infla-norm by Empirical Labs"
   description: "A branded supplement from Empirical Labs."
-  note: "Ask the manufacturer about the current formula and availability."
+  note: "Call our office for questions about this supplement."
+  contact: practice
 
 - id: "cherry-flex"
   category: "nutrition"
   title: "Cherry Flex by Brownwood Acres"
   description: "A concentrated tart cherry product from Brownwood Acres."
-  note: "Ask the practice about the specific product before purchasing."
+  note: "Call our office to clarify which product was discussed at your visit."
+  contact: practice
 
 - id: "carlson-fish-oil"
   category: "nutrition"
@@ -304,8 +306,8 @@
 - id: "body-sculpting-curves"
   category: "local"
   title: "Body Sculpting Curves"
-  description: "A Casper bodywork listing."
-  note: "Ask the practice for current contact information."
+  description: "Contact our office for current referral information."
+  contact: practice
   images:
     - src: "/assets/images/legacy/bb9d5b50e5256b418990.jpg"
       alt: "Body Sculpting Curves"

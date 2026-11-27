@@ -9,7 +9,7 @@ faq_sources:
   - title: Patient forms
     url: /patients/#forms
   - title: Medicare ABN
-    url: /patients/medicare-abn-form/
+    url: /patients/#medicare-abn
 ---
 
 Review the **patient intake** and **symptoms history** forms before your first appointment. The intake form asks about contact and insurance information. The symptoms form asks how your symptoms began, how they have changed and what affects them. The For patients page shows which forms are available online. Call the office if submission is unavailable.

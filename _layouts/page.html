@@ -7,12 +7,5 @@ layout: default
   {% if page.video %}{% include video.html id=page.video title=page.title %}{% endif %}
   {% if page.content_type == "Guide" or page.url == "/approach/" %}{% include reading-tools.html outline=true %}{% endif %}
   {{ content }}
-  {% assign patient_form = site.data.forms | where: 'url', page.url | first %}
-  {% if patient_form %}
-  <div>{% include patient-form-link.html form=patient_form %}</div>
-  {% if patient_forms_review %}<p>Form demonstration. Please leave all fields blank and do not submit the form.</p>{% endif %}
-  {% endif %}
   {% include related.html %}
 </article>
-
-{% if patient_form and show_patient_form %}{% include patient-form-dialog.html %}{% endif %}
