@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% capture title %}{{ page.title }}{% unless page.url == '/' %} | {{ site.title }}{% endunless %}{% endcapture %}
+  <title>{{ title | escape }}</title>
+  {% assign page_description = page.description | default: page.excerpt | markdownify | strip_html | normalize_whitespace | truncate: 160 | default: site.description %}
+  <meta name="description" content="{{ page_description | escape }}">
+  <meta name="robots" content="{{ site.robots }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ title | escape }}">
+  {% assign social_image = page.image | default: page.library_image | default: '/assets/images/movement.webp' %}
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:type" content="{% if page.collection == 'posts' or page.content_type == 'FAQ' %}article{% else %}website{% endif %}">
+  <meta property="og:image" content="{{ social_image | absolute_url }}">
+  {% if social_image == '/assets/images/movement.webp' %}
+  <meta property="og:image:width" content="848">
+  <meta property="og:image:height" content="478">
+  <meta property="og:image:alt" content="Scott Popp demonstrating a walking exercise">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% if page.url == '/' %}{% include practice-schema.html %}{% endif %}
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/js/heading-permalinks.js' | relative_url }}"></script>
+</head>
+<body><a class="skip" href="#main">Skip to content</a>
+  {% include header.html %}
+  <main id="main">{{ content }}</main>
+  {% include footer.html %}
+</body>
+</html>

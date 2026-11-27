@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<article class="wrap reading article-page">
+  <h1>{{ page.title | escape }}</h1>
+  <time datetime="{% if page.published_utc %}{{ page.published_utc | escape }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}">{{ page.displayed_date | default: page.date | date: "%B %-d, %Y" }}</time>
+  {% if page.categories.size > 0 or page.tags.size > 0 %}
+  <dl class="article-taxonomy">
+    {% if page.categories.size > 0 %}<dt>Categories</dt><dd>{% for category in page.categories %}<a href="{{ '/knowledge/articles/' | relative_url }}?category={{ category | url_encode }}">{{ category | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
+    {% if page.tags.size > 0 %}<dt>Tags</dt><dd>{% for tag in page.tags %}<a href="{{ '/knowledge/articles/' | relative_url }}?tag={{ tag | url_encode }}">{{ tag | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
+  </dl>
+  {% endif %}
+  {% include reading-tools.html outline=true %}
+  <div class="article-content">{{ content }}</div>
+  {% include related.html %}
+</article>
+
+{% include citation-sources.html %}

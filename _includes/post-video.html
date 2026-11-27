@@ -1,0 +1,7 @@
+{%- assign embedded = page.videos | where: 'id', include.id | first -%}
+{%- assign canonical = site.data.videos | where: 'id', include.id | first -%}
+{%- assign player_title = include.title | default: embedded.title | default: canonical.title | default: page.title -%}
+<figure id="video-{{ include.id | escape }}">
+  {% include video.html id=include.id title=player_title %}
+  {% if include.caption %}<figcaption>{{ include.caption | escape }}</figcaption>{% endif %}
+</figure>

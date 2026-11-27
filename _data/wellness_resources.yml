@@ -1,0 +1,358 @@
+- id: "neck-flex"
+  category: "movement"
+  title: "Neck Flex"
+  description: "A head harness for exercises that use resistance, including neck rotation."
+  images:
+    - src: "/assets/images/legacy/4bc833b1d1d358316b8a.jpg"
+      alt: "Neck Flex equipment"
+    - src: "/assets/images/legacy/59052ab236ef2a6fdb12.jpg"
+      alt: "Diagram of neck and shoulder crossover"
+  links:
+    - url: "https://www.theneckflex.com/"
+
+- id: "uniplane-rocker"
+  category: "movement"
+  title: "Wooden Uniplane Rocker"
+  description: "A wooden board with non-slip strips for balance work in one direction. It measures 15 × 13.5 × 3.5 inches, tilts up to 34°, and supports up to 400 lb."
+  images:
+    - src: "/assets/images/legacy/526a797e1f9adeb18803.jpg"
+      alt: "Wooden Uniplane Rocker"
+  links:
+    - url: "https://www.optp.com/Wooden-Uniplane-Rocker"
+
+- id: "wooden-wobble-board"
+  category: "movement"
+  title: "Wooden Wobble balance board"
+  description: "A round wooden balance board with a raised base that lets it tilt in several directions. It measures 16.5 inches across, tilts up to 25°, and supports up to 400 lb."
+  images:
+    - src: "/assets/images/legacy/66f2e40a518a714a1e1d.jpg"
+      alt: "Wooden Wobble balance board"
+  links:
+    - url: "https://www.optp.com/Wooden-Wobble?kw=wobble%20board"
+
+- id: "roadpro-corner-protector"
+  category: "movement"
+  title: "RoadPro tarp corner protector"
+  description: "A molded tarp protector repurposed as a tool in hip and gluteal mobilization."
+  images:
+    - src: "/assets/images/legacy/dc193210f4f0c002d551.jpg"
+      alt: "RoadPro corner protector"
+  links:
+    - url: "https://www.amazon.com/RoadPro-RPCP-Tarp-Corner-Protector/dp/B008NJPMQ2/ref=sr_1_2?dchild=1&keywords=roadpro+roadpro+rpcp+tarp+corner+protector&qid=1627572366&sr=8-2"
+
+- id: "battle-rope"
+  category: "movement"
+  title: "1.5-inch battle rope"
+  description: "A 1.5-inch training rope, the size used in the rope-walking exercise."
+  links:
+    - url: "https://www.amazon.com/AmazonBasics-1-5in-Battle-Exercise-Training/dp/B072Z2ZTLJ/ref=sr_1_1_ffob_sspa?crid=1WPV6CWP17YAP&dib=eyJ2IjoiMSJ9.r739b4EWX-VM4qBshw6uLtZypSmsCcac_wpJm5LtioVTtgtby-juTctJhX_7HEkGEE86nRNayDbWBU5Xp7-uUwx7KCmOlavKXXK7PbfQx3kCegQRD7oiiYxW14EEVMYZ7zEQBx2Z1xPLdnw65-VmDV3JoTrNGQ6hDRbBJnAHCVIEPMPctk-E58X6my1sFLEZ1AWfikewc5TYdyq8ufhYQFG5vadooC5e28k84vnjX1lyX_8kvwXyuSjcFlA8BOCOZlOKZq8xfgXhlk0WOIcOMgrBgkrfTM1CGWkBEsqzEfo.8Wm8XlYzs5t0xc3ll2DX3DdyfJwARTiiHTZC1FKp9jg&dib_tag=se&keywords=battle%2Bropes&qid=1786489482&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&sprefix=battle%2Brope%2Caps%2C229&sr=8-1-spons&th=1"
+
+- id: "stimpod-460"
+  category: "movement"
+  title: "Stimpod 460"
+  description: "Algiamed’s NMS460 pulsed radiofrequency stimulation system for professional use."
+  links:
+    - url: "https://www.algiamed.com/product-category/stimpod-prf-systems/"
+
+- id: "daylight-computer"
+  category: "light"
+  title: "Daylight Computer"
+  description: "A tablet built around a reflective display with an optional warm backlight."
+  links:
+    - url: "https://daylightcomputer.com/"
+
+- id: "emr-tek-firewave"
+  category: "light"
+  title: "EMR-Tek Firewave"
+  description: "A compact panel that emits red and near-infrared light."
+  links:
+    - url: "https://emr-tek.com/products/firewave"
+
+- id: "emr-tek-firedragon"
+  category: "light"
+  title: "EMR-Tek Firedragon"
+  description: "A larger red and near-infrared panel with six wavelengths."
+  links:
+    - url: "https://emr-tek.com/products/firedragon"
+
+- id: "midwest-red-light"
+  category: "light"
+  title: "Midwest Red Light Therapy"
+  description: "A lighting supplier with indoor bulbs, eyewear and red-light devices."
+
+  links:
+    - url: "https://midwestredlighttherapy.com/"
+
+- id: "sperti"
+  category: "light"
+  title: "Sperti UVA and UVB lights"
+  description: "Compare the manufacturer’s UVA and UVB lamps and see how their light output differs by model."
+
+  links:
+    - url: "https://www.sperti.com/compare-us/"
+
+- id: "nira"
+  category: "light"
+  title: "Nira Lighting"
+  description: "LED bulbs for indoor lighting that also emit near-infrared light."
+  links:
+    - url: "https://niralighting.com/"
+
+- id: "chroma"
+  category: "light"
+  title: "Chroma lighting"
+  description: "Specialty lighting for indoor spaces, including red-light and other low-blue-light options."
+  links:
+    - url: "https://getchroma.co/"
+
+- id: "red-light-man"
+  category: "light"
+  title: "Red Light Man"
+  description: "A manufacturer of red and near-infrared bulbs and panels."
+  links:
+    - url: "https://redlightman.com/"
+
+- id: "red-rush-360"
+  category: "light"
+  title: "RedRush 360 owner’s manual"
+  description: "The manufacturer’s manual covers setup and operation for the RedRush 360 and 360 Pro."
+  note: "This model is no longer sold by the manufacturer."
+  images:
+    - src: "/assets/images/legacy/34f66cc1dc541fb8e3f9.jpg"
+      alt: "Red Rush 360 device"
+  links:
+    - url: "https://cdn.shopify.com/s/files/1/2683/7232/files/redrush360-manual-text-v8.pdf?v=1672970355"
+
+- id: "ooler"
+  category: "sleep"
+  title: "Ooler sleep system support"
+  description: "Sleepme provides repair guides for this water-cooled mattress pad system."
+  note: "This model is no longer in production."
+  images:
+    - src: "/assets/images/legacy/ed3823e776e41d66cd35.jpg"
+      alt: "Ooler sleep system"
+  links:
+    - url: "https://help.sleep.me/repair-guides-ooler"
+
+- id: "thera-cane"
+  category: "sleep"
+  title: "Thera Cane"
+  description: "A curved self-massage tool whose handle helps reach areas such as the middle of the back while seated."
+  images:
+    - src: "/assets/images/legacy/107550faffc621616c8f.jpg"
+      alt: "Thera Cane tool"
+  links:
+    - url: "https://www.amazon.com/Thera-Cane-No-Model-Massager/dp/B00NH0XG7E/ref=sr_1_1_sspa?dchild=1&gclid=CjwKCAjwndCKBhAkEiwAgSDKQTDxXwClwUdXuFdUNFdVX6OxsjNN5DkVzhSGKnpausu5eCSCgv6S_BoCalEQAvD_BwE&hvadid=153700665822&hvdev=c&hvlocphy=9029318&hvnetw=g&hvqmt=e&hvrand=7413888465032871369&hvtargid=kwd-51313800&hydadcr=5942_9213203&keywords=theracane&qid=1632928092&sr=8-1-spons&psc=1&smid=A25SW9WEC88F0Y&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzNVFXRjhKMkwwRjFRJmVuY3J5cHRlZElkPUEwMzkyNDc3MVhKTzIyVDlCMlUzTSZlbmNyeXB0ZWRBZElkPUEwNzk3OTY2M0VZSjhJQUg5WFdRWiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+
+- id: "fatty15"
+  category: "nutrition"
+  title: "Fatty15"
+  description: "A supplement containing pentadecanoic acid, also called C15:0."
+  links:
+    - url: "https://fatty15.com/"
+
+- id: "berkeley-life"
+  category: "nutrition"
+  title: "Berkeley Life"
+  description: "A product line that includes dietary nitrate supplements and nitric oxide test strips."
+  links:
+    - url: "https://berkeleylife.com/"
+
+- id: "mushroom-blend"
+  category: "nutrition"
+  title: "14 Mushroom Blend"
+  description: "A blend of 14 mushroom varieties sold by Bulk Wholesale Mushrooms."
+  links:
+    - url: "https://bulkwholesalemushrooms.com/"
+
+- id: "curcumin-boswellia"
+  category: "nutrition"
+  title: "Swanson curcumin and boswellia"
+  description: "A Swanson capsule that combines curcumin from turmeric and boswellia."
+  images:
+    - src: "/assets/images/legacy/1016e693ca4c9657e6e0.jpg"
+      alt: "Curcumin and boswellia packaging"
+  links:
+    - url: "https://www.swansonvitamins.com/swanson-premium-full-spectrum-boswellia-curcumin-60-caps"
+
+- id: "infla-norm"
+  category: "nutrition"
+  title: "Infla-norm by Empirical Labs"
+  description: "A branded supplement from Empirical Labs."
+  note: "Ask the manufacturer about the current formula and availability."
+
+- id: "cherry-flex"
+  category: "nutrition"
+  title: "Cherry Flex by Brownwood Acres"
+  description: "A concentrated tart cherry product from Brownwood Acres."
+  note: "Ask the practice about the specific product before purchasing."
+
+- id: "carlson-fish-oil"
+  category: "nutrition"
+  title: "Carlson’s Very Finest Fish Oil"
+  description: "Carlson’s lemon-flavored liquid fish oil supplies the omega-3 fats EPA and DHA."
+  links:
+    - url: "http://www.swansonvitamins.com/carlson-very-finest-fish-oil-omega-3-lemon-16-9-fl-oz-500-ml-liquid"
+
+- id: "bromelain"
+  category: "nutrition"
+  title: "Life Extension enteric-coated bromelain"
+  description: "Life Extension’s enteric-coated bromelain is a pineapple enzyme supplement in tablet form."
+  images:
+    - src: "/assets/images/legacy/11845272313034c35cd9.jpg"
+      alt: "Bromelain packaging"
+  links:
+    - url: "https://www.lifeextension.com/vitamins-supplements/item01203/specially-coated-bromelain"
+
+- id: "magtech"
+  category: "nutrition"
+  title: "MagTech magnesium"
+  description: "A Natural Stacks magnesium supplement that combines different forms of magnesium."
+  images:
+    - src: "/assets/images/legacy/942324e563e71207551a.jpg"
+      alt: "MagTech packaging"
+  links:
+    - url: "https://www.amazon.com/Natural-Stacks-Magnesium-Cognitive-Supplement/dp/B00HZWHGJ4"
+
+- id: "spermidine"
+  category: "nutrition"
+  title: "Oxford Healthspan spermidine"
+  description: "Oxford Healthspan’s spermidine supplement. The manufacturer provides a full ingredient label."
+  images:
+    - src: "/assets/images/legacy/dad000598b9c83a113f3.jpg"
+      alt: "Oxford Healthspan packaging"
+  links:
+    - url: "https://oxfordhealthspan.com/"
+
+- id: "akkermansia"
+  category: "nutrition"
+  title: "Pendulum Akkermansia probiotic"
+  description: "A Pendulum probiotic containing Akkermansia muciniphila."
+  images:
+    - src: "/assets/images/legacy/5b6477d1bc5489dc1c6f.jpg"
+      alt: "Pendulum packaging"
+  links:
+    - url: "https://pendulumlife.com/"
+
+- id: "mitopure"
+  category: "nutrition"
+  title: "Mitopure"
+  description: "Timeline’s branded form of urolithin A."
+  images:
+    - src: "/assets/images/legacy/4fddab834f0d9e3f597c.png"
+      alt: "Mitopure packaging"
+  links:
+    - url: "https://www.timeline.com/"
+
+- id: "life-extension-discount"
+  category: "nutrition"
+  title: "Life Extension"
+  description: "Browse Life Extension’s supplement catalog and product labels."
+
+  links:
+    - url: "https://www.lifeextension.com/"
+
+- id: "hydrohealth"
+  category: "water"
+  title: "Extra Light Water by HydroHealth"
+  description: "Manufacturer information on deuterium-depleted water, including concentration options and lab reports."
+  links:
+    - url: "https://extralightwater.com/"
+
+- id: "hydrohealth-10-ppm"
+  category: "water"
+  title: "HydroHealth 10 ppm water"
+  description: "Bottled deuterium-depleted drinking water with a listed concentration of 10 parts per million."
+  links:
+    - url: "https://25-ddw-hydrohealth.myshopify.com/products/10-ppm-hydro-health-promo-price-only-275-for-one-case-of-24-bottles-each-costs-11-45-delivered-x-500-ml-12-liters-including-s-h-compared-to-10-ppm-16-per-500-ml-imported-from-russia"
+
+- id: "hydrogen-water-generator"
+  category: "water"
+  title: "Choosing a hydrogen water generator"
+  description: "Learn what to look for when selecting a portable hydrogen water generator, including independent testing and product certification."
+  links:
+    - url: "https://molecularhydrogeninstitute.org/considerations-for-choosing-a-good-hydrogen-product/"
+
+- id: "lifetime-crossfit"
+  category: "local"
+  title: "LifeTime Health and Fitness"
+  description: "A Casper fitness facility with group classes and strength and conditioning through 307 Athlete."
+  images:
+    - src: "/assets/images/legacy/5ce872a6c734948d6aaf.jpg"
+      alt: "LifeTime Health and Fitness"
+    - src: "/assets/images/legacy/7972ee3a72885e8b3d83.jpg"
+      alt: "CrossFit 307"
+  links:
+    - url: "https://www.lifetime307.com/"
+
+- id: "kristen-zook"
+  category: "local"
+  title: "Kristen Zook, CMT"
+  description: "Massage therapy contact at 3211 Energy Ln, Suite 300, Casper, WY 82604."
+  phone: "307-277-0358"
+  links:
+    - url: "tel:+13072770358"
+
+- id: "307-massage"
+  category: "local"
+  title: "307 Massage"
+  description: "A Casper massage practice."
+  phone: "307-267-7124"
+  links:
+    - url: "tel:+13072677124"
+
+- id: "body-sculpting-curves"
+  category: "local"
+  title: "Body Sculpting Curves"
+  description: "A Casper bodywork listing."
+  note: "Ask the practice for current contact information."
+  images:
+    - src: "/assets/images/legacy/bb9d5b50e5256b418990.jpg"
+      alt: "Body Sculpting Curves"
+
+- id: "molecular-hydrogen-institute"
+  category: "water"
+  title: "Molecular Hydrogen Institute"
+  description: "An educational organization with research summaries and background on molecular hydrogen."
+  images:
+    - src: "/assets/images/legacy/62913c2989653c649c88.png"
+      alt: "Molecular Hydrogen Institute graphic"
+  links:
+    - url: "https://molecularhydrogeninstitute.org/"
+
+- id: "found-my-fitness"
+  category: "research"
+  title: "FoundMyFitness"
+  description: "Interviews and articles about exercise, nutrition and health research."
+  images:
+    - src: "/assets/images/legacy/67780752ee39c6c74958.jpg"
+      alt: "FoundMyFitness resource graphic"
+  links:
+    - url: "https://www.foundmyfitness.com/"
+
+- id: "ergolog"
+  category: "research"
+  title: "Ergo-Log"
+  description: "An independent publication covering exercise, nutrition and performance research."
+  images:
+    - src: "/assets/images/legacy/864beb6593844076ad02.jpg"
+      alt: "Nutrition research illustration"
+  links:
+    - url: "https://www.ergo-log.com/"
+
+- id: "suppversity"
+  category: "research"
+  title: "SuppVersity"
+  description: "An independent publication covering exercise and nutrition research."
+  images:
+    - src: "/assets/images/legacy/aa89f71f16b9ead1d31c.jpg"
+      alt: "Exercise science illustration"
+  links:
+    - url: "https://suppversity.blogspot.com/"
+
+- id: "carbogenics"
+  category: "sleep"
+  title: "Carbogenics CO₂ therapy"
+  description: "A supplier of equipment for carbon dioxide delivery."
+  links:
+    - url: "https://carbogenetics.com/"

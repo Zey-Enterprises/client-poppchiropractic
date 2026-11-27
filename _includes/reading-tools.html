@@ -1,0 +1,25 @@
+{% assign share_url = page.url | absolute_url %}
+{% assign share_title = page.title | default: site.title %}
+{% assign copy_label = 'Copy page link' %}
+{% if page.content_kind == 'video' and include.video_id %}
+  {% assign share_url = 'https://www.youtube.com/watch?v=' | append: include.video_id %}
+  {% assign share_title = include.video_title | default: share_title %}
+  {% assign copy_label = 'Copy video link' %}
+{% endif %}
+{% assign share_encoded = share_url | url_encode %}
+{% capture twitter %}https://twitter.com/intent/tweet?url={{ share_encoded }}&text={{ share_title | url_encode }}{% endcapture %}
+{% capture facebook %}https://www.facebook.com/sharer/sharer.php?u={{ share_encoded }}{% endcapture %}
+{% capture linkedin %}https://www.linkedin.com/sharing/share-offsite/?url={{ share_encoded }}{% endcapture %}
+<div class="reading-share" role="group" aria-label="{% if include.video_id %}Share video{% elsif include.pdf %}Share and download{% else %}Share and print{% endif %}" data-social-share data-share-url="{{ share_url | escape }}" data-share-title="{{ share_title | escape }}">
+  {% include share-button.html label="Share on Twitter" icon="twitter" url=twitter %}
+  {% include share-button.html label="Share on Facebook" icon="facebook-f" url=facebook %}
+  {% include share-button.html label="Share on LinkedIn" icon="linkedin-in" url=linkedin %}
+  {% include share-button.html label="Share using your device" icon="share-nodes" mode="native" %}
+  {% unless include.video_id %}{% include share-button.html label="Print or save as PDF" icon="print" mode="print" %}{% endunless %}
+  {% include share-button.html label=copy_label icon="link" mode="copy" %}
+  {% if include.pdf %}{% include share-button.html label="Download source PDF" icon="file-pdf" mode="download" url=include.pdf %}{% endif %}
+  <span class="share-feedback" role="status" data-share-feedback hidden></span>
+</div>
+{% if include.outline %}{% include toc-widget.html %}{% endif %}
+<script src="{{ '/assets/js/social-share.js' | relative_url }}" defer></script>
+{% if include.outline %}<script src="{{ '/assets/js/toc-widget.js' | relative_url }}" defer></script>{% endif %}

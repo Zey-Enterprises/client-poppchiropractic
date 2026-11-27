@@ -1,0 +1,9 @@
+{% assign patient_form_item = include.form %}
+{% include patient-form-access.html form=patient_form_item %}
+{% if show_patient_form %}
+<a class="button" href="{{ patient_form_item.provider_url | escape }}" target="_blank" rel="noopener noreferrer" data-patient-form data-form-title="{{ patient_form_item.title | escape }}" aria-label="Open form: {{ patient_form_item.title | escape }}">Open form</a>
+{% elsif page.url != patient_form_item.url %}
+<a class="button" href="{{ patient_form_item.url | relative_url }}" aria-label="Form details: {{ patient_form_item.title | escape }}">Form details</a>
+{% else %}
+<p>For help with this form, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>.</p>
+{% endif %}

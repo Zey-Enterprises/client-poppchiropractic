@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<section class="wrap hub" data-faq-library>
+  <header class="hub-intro">
+    <a class="inline-link" href="{{ '/knowledge/' | relative_url }}">Knowledge base</a>
+    <h1>{{ page.title | escape }}</h1>
+    <p class="lede">{{ page.description | escape }}</p>
+  </header>
+  {% assign questions = site.pages | where: 'content_type', 'FAQ' | where_exp: 'item', 'item.published != false' | where_exp: 'item', 'item.hidden != true' | sort: 'title' %}
+  {% assign topics = questions | map: 'faq_topic' | uniq | sort %}
+  <form class="faq-filters" aria-label="Filter FAQs" aria-controls="faq-results" hidden>
+    <label>Search questions and answers <input type="search" name="q"></label>
+    <label>Topic
+      <select name="topic">
+        <option value="">All topics</option>
+        {% for topic in topics %}<option>{{ topic | escape }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Sort
+      <select name="sort">
+        <option value="">Question A–Z</option><option value="title-desc">Question Z–A</option><option value="topic">Topic</option>
+      </select>
+    </label>
+    <button type="reset" class="button">Clear filters</button>
+  </form>
+  <p role="status" data-faq-status></p>
+  <ul class="faq-results" id="faq-results">
+    {% for item in questions %}
+    <li data-topic="{{ item.faq_topic | escape }}" data-answer="{{ item.content | markdownify | strip_html | normalize_whitespace | escape }}">
+      <a href="{{ item.url | relative_url }}" class="resource-card">
+        <small>{{ item.faq_topic | escape }}</small>
+        <strong>{{ item.title | escape }}</strong>
+        <span>{{ item.description | escape }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  <p data-faq-empty hidden>Try different search terms or clear the topic filter.</p>
+  <p>Preparing for a visit? <a href="{{ '/patients/' | relative_url }}">For patients</a>.</p>
+</section>
+<script defer src="{{ '/assets/js/faq.js' | relative_url }}"></script>

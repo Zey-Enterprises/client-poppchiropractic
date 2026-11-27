@@ -1,0 +1,45 @@
+.button[hidden] { display: none; }
+button.button { border: 0; cursor: pointer; font-family: inherit; }
+.search-form > div { display: flex; margin-top: .4rem; }
+.search-form input { min-width: 0; }
+.search-results { list-style: none; padding: 0; }
+.search-results li { padding: 1.1rem 0; border-top: 1px solid var(--rule); }
+.search-results small { color: var(--rust); display: block; }
+.search-results a { font-weight: 650; }
+.search-results p { margin: .4rem 0 0; }
+.protocol h1 { font-size: clamp(2.35rem, 5vw, 4.5rem); }
+.protocol-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+.protocol-series { color: var(--rust); font-weight: 600; }
+.protocol figure { margin: 1.25rem 0; }
+.protocol figure img { width: auto; max-height: 29rem; object-fit: contain; margin: 0; }
+.protocol .figures { display: flex; gap: .75rem; flex-wrap: wrap; align-items: flex-end; }
+.protocol .figures figure { flex: 0 1 auto; max-width: min(100%, 16rem); }
+.protocol .paired { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr; border-top: 1px solid var(--rule); gap: 1rem; margin-block: 1rem; align-items: start; }
+.protocol .paired > * { min-width: 0; }
+@media screen and (max-width: 36rem) { .protocol .paired { grid-template-columns: 1fr; gap: 0; } }
+.print-source { display: none; }
+@media print {
+  @page { margin: .65in; }
+  body { background: white; color: #111; font: 11pt/1.42 Georgia, serif; }
+  .mast, footer, .skip, .protocol-actions, .protocol aside { display: none; }
+  .wrap.reading { width: 100%; max-width: none; margin: 0; font-size: inherit; }
+  .protocol h1 { font-size: 23pt; margin: 0 0 12pt; }
+  .protocol h2 { font-size: 16pt; margin: 14pt 0 5pt; }
+  .protocol h3 { font-size: 12pt; margin: 8pt 0 4pt; }
+  .protocol h1, .protocol h2, .protocol h3 { break-after: avoid; }
+  .protocol p, .protocol li { orphans: 3; widows: 3; }
+  .protocol .paired, .protocol figure { break-inside: avoid; }
+  .protocol figure { margin-block: 7pt; }
+  .protocol figure img { max-height: 1.85in; max-width: 100%; }
+  .protocol figure.diagram img { max-height: 2.65in; }
+  .protocol .paired { margin-block: 6pt; }
+  .protocol .figures figure { max-width: 1.65in; }
+  .print-source { display: block; break-inside: avoid; border-top: .5pt solid #888; padding-top: 7pt; font-size: 9pt; margin-bottom: 0; }
+}
+.exercise-gallery figure { display: inline-block; vertical-align: top; width: min(100%, 13rem); margin: 0 1rem 1rem 0; }
+.exercise-gallery figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #eae6db; margin: 0 0 .4rem; }
+.protocol-print-title { display: none; }
+@media print {
+  .protocol-screen-title { display: none; }
+  .protocol-print-title { display: block; }
+}

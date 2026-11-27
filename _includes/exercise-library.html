@@ -1,0 +1,13 @@
+{% assign complete_protocols = site.pages | where: "layout", "protocol" %}
+{% assign additional_protocols = site.pages | where: "protocol_listing", true %}
+{% assign protocols = complete_protocols | concat: additional_protocols | sort: "title" %}
+<ul class="protocol-grid">
+  {% for protocol in protocols %}
+  <li>
+    <a class="protocol-card" href="{{ protocol.url | relative_url }}">
+      {% if protocol.library_image %}<img src="{{ protocol.library_image | relative_url }}" width="480" height="300" alt="" loading="lazy">{% endif %}
+      <span class="protocol-card-copy"><small>{{ protocol.topics | first | escape }}</small><strong>{{ protocol.title | escape }}</strong><span>{{ protocol.listing_note | default: protocol.description | escape }}</span></span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>

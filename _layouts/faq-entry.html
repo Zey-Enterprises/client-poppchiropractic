@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article class="wrap reading">
+  <a class="inline-link" href="{{ '/knowledge/faq/' | relative_url }}">All frequently asked questions</a>
+  <h1>{{ page.title | escape }}</h1>
+  {% include reading-tools.html %}
+  <div class="article-content">
+    {{ content }}
+    {% if page.citations %}
+    <h2>References</h2>
+    {% include bibliography.html %}
+    {% endif %}
+  </div>
+  <aside>
+    <h2>Further reading and videos</h2>
+    <ul>
+      {% for source in page.faq_sources %}
+      <li><a href="{{ source.url | relative_url }}">{{ source.title | escape }}</a></li>
+      {% endfor %}
+      {% assign timed_sources = page.faq_videos %}
+      {% if page.faq_video %}
+      <li><a href="https://www.youtube.com/watch?v={{ page.faq_video.id | escape }}&amp;t={{ page.faq_video.seconds }}s" target="_blank" rel="noopener noreferrer">Watch the relevant passage at {{ page.faq_video.timestamp | escape }}</a></li>
+      {% endif %}
+      {% for source in timed_sources %}
+      <li><a href="https://www.youtube.com/watch?v={{ source.id | escape }}&amp;t={{ source.seconds }}s" target="_blank" rel="noopener noreferrer">{{ source.title | escape }} at {{ source.timestamp | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+  {% assign related_faqs = site.pages | where: 'content_type', 'FAQ' | where: 'faq_topic', page.faq_topic | where_exp: 'item', 'item.url != page.url' %}
+  {% if related_faqs.size > 0 %}
+  <aside><h2>Related questions</h2><ul>
+    {% for entry in related_faqs limit:3 %}<li><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></li>{% endfor %}
+  </ul><a href="{{ '/knowledge/faq/' | relative_url }}?topic={{ page.faq_topic | url_encode }}">Browse this topic</a></aside>
+  {% endif %}
+</article>
+{% include citation-sources.html %}

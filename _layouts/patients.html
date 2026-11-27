@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<section class="wrap hub">
+  <header class="hub-intro">
+    <h1>{{ page.title | escape }}</h1>
+    {{ content }}
+    <div class="actions">{% include booking.html %}<a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a></div>
+  </header>
+  <nav class="section-links" aria-label="For patients">
+    <a href="#first-visit">First appointment</a><a href="#forms">Paperwork</a><a href="#location">Location and contact</a>
+  </nav>
+  <section class="hub-section" id="first-visit">
+    <h2>Your first appointment</h2>
+    <p>Book online through JaneApp or call the practice. Review the intake and symptoms paperwork before your visit. Have your contact and insurance details handy. Ask the office about any additional items to bring.</p>
+    <p>We consider your symptoms, condition and circumstances when choosing care. Depending on those factors, care can include mobilization, exercise or guidance for working on movement between visits. Call the office for details about the first visit.</p>
+    <p><a href="{{ '/care/services/' | relative_url }}">Explore chiropractic services</a> · <a href="{{ '/knowledge/faq/' | relative_url }}">Browse frequently asked questions</a></p>
+  </section>
+  <section id="forms" class="hub-section">
+    <h2>Patient forms</h2>
+    <p>For help completing paperwork or acknowledging the privacy notice, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>.</p>
+    {% include patient-form-access.html %}
+    {% if patient_forms_review %}<p>Form demonstration. Please leave all fields blank and do not submit a form.</p>{% endif %}
+    {% assign has_active_patient_form = false %}
+    <ul class="patient-form-list">
+      {% for form in site.data.forms %}
+      <li class="patient-form-row">
+        <strong>{{ form.title | escape }}</strong>
+        <p>{{ form.purpose | escape }}</p>
+        <div class="actions">
+          {% include patient-form-link.html form=form %}
+          {% if show_patient_form %}{% assign has_active_patient_form = true %}{% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="hub-section" id="location">
+    <h2>Location and contact</h2>
+    <address>{{ site.title }}<br>{{ site.data.practice.street }}<br>{{ site.data.practice.city }}, {{ site.data.practice.state }} {{ site.data.practice.zip }}</address>
+    <p><a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a></p>
+    <div class="card-grid">
+      <a class="resource-card" href="{{ '/patients/directions-contact/' | relative_url }}"><strong>Directions and contact</strong><span>{{ site.data.practice.street }}, {{ site.data.practice.city }}, {{ site.data.practice.state }}</span></a>
+      <a class="resource-card" href="{{ '/patients/plans-pricing/' | relative_url }}"><strong>Plans and pricing</strong><span>Contact the practice about current fees and options.</span></a>
+    </div>
+  </section>
+  <section class="hub-section">
+    <h2>Payment and privacy</h2>
+    <div class="section-links"><a href="{{ site.data.practice.bitcoin_payment }}">Pay Bitcoin</a><a href="{{ '/privacy/' | relative_url }}">Privacy policy</a></div>
+    <p>If online payment is unavailable, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a> for payment options.</p>
+  </section>
+</section>
+
+{% if has_active_patient_form %}{% include patient-form-dialog.html %}{% endif %}

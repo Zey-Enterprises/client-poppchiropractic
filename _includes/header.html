@@ -1,0 +1,15 @@
+<header class="mast wrap">
+  <a class="brand" href="{{ '/' | relative_url }}" aria-label="Popp Chiropractic and Rehab PC home"><i aria-hidden="true"></i><span>Popp <b>Chiropractic</b><small>&amp; Rehab PC</small></span></a>
+  <nav aria-label="Main navigation">
+    {% assign active_section = site.data.navigation | where: "url", page.url | first %}
+    {% for item in site.data.navigation reversed %}
+      {% assign prefix = page.url | slice: 0, item.section.size %}
+      {% if active_section == nil and prefix == item.section %}{% assign active_section = item %}{% endif %}
+    {% endfor %}
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% elsif active_section.url == item.url %} class="current-section"{% endif %}>{{ item.label }}</a>
+    {% endfor %}
+    <a href="{{ '/search/' | relative_url }}">Search</a>
+  </nav>
+  {% include booking.html %}
+</header>

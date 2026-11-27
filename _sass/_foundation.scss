@@ -1,0 +1,39 @@
+:root {
+  --paper: #f6f3ec;
+  --ink: #212b25;
+  --pine: #253d32;
+  --rust: #974622;
+  --lime: #e4ecad;
+  --rule: #bbbdb1;
+  --display: Baskerville, "Iowan Old Style", Georgia, serif;
+  --body: "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(1.1rem, 5vw, 5.5rem);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 var(--body); }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .22em; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 3px solid #b46029; outline-offset: 4px; }
+.wrap { width: calc(100% - var(--gutter) - var(--gutter)); max-width: 87rem; margin-inline: auto; }
+h1, h2 { font-family: var(--display); font-weight: 400; line-height: 1.04; letter-spacing: -.047em; }
+h1 { font-size: clamp(2.7rem, 6vw, 6.1rem); }
+h2 { font-size: clamp(2.25rem, 4.5vw, 4.7rem); margin: 0; }
+.skip { position: absolute; top: -8rem; left: 1rem; background: white; padding: 1rem; z-index: 5; }
+.skip:focus { top: 1rem; }
+.button { display: inline-flex; justify-content: space-between; align-items: center; gap: 1.3em; min-height: 44px; background: var(--pine); color: white; padding: .83rem 1.2rem; font-size: .88rem; font-weight: 600; text-decoration: none; }
+.button:hover { background: var(--rust); text-decoration: none; }
+.button span { color: var(--lime); font-size: 1.15em; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
+address { font-style: normal; }
+.label, .location { font: 600 .72rem/1.5 var(--body); text-transform: uppercase; letter-spacing: .16em; }
+.reading { max-width: 52rem; margin-block: clamp(3rem,7vw,7rem); font-size: 1.13rem; overflow-wrap: break-word; }
+.reading h1 { margin: 0 0 2rem; }
+.reading h2 { font-size: clamp(1.85rem,4vw,2.7rem); margin: 2.4rem 0 1rem; }
+.reading img { margin-block: 1.5rem; }
+.reading address { margin-bottom: 1.25rem; }
+.video { width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.catalog { padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+.catalog a { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+.catalog small { color: var(--rust); }
+input[type=search] { display: block; width: 100%; padding: .75rem; font: inherit; border: 1px solid var(--ink); background: transparent; }

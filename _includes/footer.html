@@ -1,0 +1,25 @@
+<footer class="site-footer"><div class="wrap footer-grid">
+  <div><strong>{{ site.title }}</strong><address>{{ site.data.practice.street }}<br>{{ site.data.practice.city }}, {{ site.data.practice.state }} {{ site.data.practice.zip }}</address>
+  <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>
+  <p><a href="{{ site.data.practice.booking }}">Book an appointment ↗</a></p>
+  <div class="footer-social" role="group" aria-label="Social profiles">
+    {% include share-button.html label="Popp Chiropractic on Facebook" icon="facebook-f" mode="profile" url=site.data.practice.facebook %}
+    {% include share-button.html label="Popp Chiropractic on YouTube" icon="youtube" mode="profile" url=site.data.practice.youtube %}
+    {% include share-button.html label="Scott Popp on Twitter" icon="twitter" mode="profile" url=site.data.practice.twitter %}
+    {% include share-button.html label="Scott Popp on LinkedIn" icon="linkedin-in" mode="profile" url=site.data.practice.linkedin %}
+  </div>
+  <a class="credit" href="https://altustechservices.com" target="_blank" rel="noopener noreferrer">Designed and maintained by Altus Tech Services</a>
+  </div>
+  <nav aria-label="Footer navigation" class="footer-links">
+    <a href="{{ '/care/services/' | relative_url }}">Services</a>
+    <a href="{{ '/knowledge/' | relative_url }}">Knowledge base</a>
+    <a href="{{ '/knowledge/faq/' | relative_url }}">FAQ</a>
+    <a href="{{ '/patients/#forms' | relative_url }}">Patient forms</a>
+    <a href="{{ '/patients/directions-contact/' | relative_url }}">Contact and directions</a>
+    <a href="{{ '/privacy/' | relative_url }}">Privacy</a>
+  </nav>
+  <section aria-labelledby="footer-newsletter"><h2 id="footer-newsletter">Practice newsletter</h2>
+    {% include visitor-form.html kind="newsletter" %}
+  </section>
+</div></footer>
+<script src="{{ '/assets/js/visitor-forms.js' | relative_url }}" defer></script>

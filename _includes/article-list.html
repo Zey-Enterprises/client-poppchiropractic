@@ -1,0 +1,9 @@
+<ul class="article-list">
+  {% for post in include.posts %}
+  {% assign date = post.displayed_date | default: post.date %}
+  <li{% if include.filterable %} {% if post.content_kind == 'video' %} hidden{% endif %} data-kind="{{ post.content_kind | default: 'article' }}" data-month="{{ date | date: '%Y-%m' }}" data-categories="{{ post.categories | jsonify | escape }}" data-tags="{{ post.tags | jsonify | escape }}"{% endif %}>
+    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}{% if include.filterable and post.content_kind == 'video' %} <small class="archive-video-label">Video</small>{% endif %}</a>
+    <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | date: "%b %-d, %Y" }}</time>
+  </li>
+  {% endfor %}
+</ul>

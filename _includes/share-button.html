@@ -1,0 +1,10 @@
+{% capture icon %}<img src="{{ '/assets/vendor/fontawesome-free-6.7.2/' | append: include.icon | append: '.svg' | relative_url }}" width="17" height="17" alt="">{% endcapture %}
+{% if include.mode == 'download' %}
+<a class="share-control" href="{{ include.url | relative_url | escape }}" download aria-label="{{ include.label | escape }}" title="{{ include.label | escape }}">{{ icon }}</a>
+{% elsif include.mode == 'profile' %}
+<a class="share-control" href="{{ include.url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.label | escape }}" title="{{ include.label | escape }}">{{ icon }}</a>
+{% elsif include.url %}
+<a class="share-control" data-share-link data-share-popup="true" href="{{ include.url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ include.label | escape }}" title="{{ include.label | escape }}">{{ icon }}</a>
+{% else %}
+<button class="share-control" type="button" aria-label="{{ include.label | escape }}" title="{{ include.label | escape }}"{% if include.mode == 'print' %} data-share-print{% else %} data-share-button data-share-mode="{{ include.mode }}"{% if include.mode == 'native' %} data-share-hide-when-no-native="true" hidden{% endif %}{% endif %}>{{ icon }}</button>
+{% endif %}

@@ -1,0 +1,85 @@
+title: Popp Chiropractic & Rehab PC
+description: Restoring healthy expansion of the spine and human frame
+url: https://poppchiropractic.client-staging.altustechservices.com
+baseurl: ""
+timezone: America/Denver
+lang: en-US
+robots: noindex, nofollow
+integrations_live: false
+patient_forms_review: false
+theme: null
+include: [_pages, _redirects, _files]
+exclude:
+  - .codex
+  - .agents
+  - AGENTS.md
+  - CLAUDE.md
+  - GEMINI.md
+  - AGENTS.override.md
+  - "**/AGENTS.md"
+  - "**/AGENTS.override.md"
+  - "**/CLAUDE.md"
+  - "**/GEMINI.md"
+  - .claude
+  - .cursor
+  - .windsurf
+  - docs
+  - DESIGN.md
+  - PROJECT_STATUS.md
+  - private
+  - reference-implementations
+  - reference-scrape
+  - raw
+  - transcripts
+  - output
+  - test-results
+  - playwright-report
+  - screenshots
+  - diagnostics
+  - tmp
+  - .bundle
+  - _site
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .git
+  - .github
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .env
+  - ".env.*"
+  - .envrc
+  - .direnv
+  - .aws
+  - .ssh
+  - credentials
+  - secrets
+  - "**/credentials/**"
+  - "**/secrets/**"
+  - "**/.DS_Store"
+  - "**/*.log"
+  - "**/*.tmp"
+  - "**/*.swp"
+  - "**/*.pem"
+  - "**/*.key"
+  - "**/*.p12"
+  - "**/*.pfx"
+permalink: /knowledge/articles/:title/
+defaults:
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+sass:
+  style: compressed
+kramdown:
+  input: GFM
+  smart_quotes: "39,39,34,34"
+  gfm_quirks: [paragraph_end, no_auto_typographic]

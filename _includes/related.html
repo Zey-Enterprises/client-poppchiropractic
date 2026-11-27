@@ -1,0 +1,9 @@
+{% if page.related %}
+<aside><h2>Related resources</h2><ul>
+  {% assign entries = site.pages | concat: site.posts %}
+  {% for path in page.related %}
+    {% assign item = entries | where: "url", path | first %}
+    {% if item %}<li><a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a>{% if item.content_kind == 'video' %} <small>Video</small>{% endif %}</li>{% endif %}
+  {% endfor %}
+</ul></aside>
+{% endif %}

@@ -1,0 +1,7 @@
+{%- assign related_posts = '' | split: ',' -%}
+{%- for video_post in site.posts -%}
+  {%- assign post_record_ids = video_post.videos | map: 'id' -%}
+  {%- if video_post.video_ids contains include.id or post_record_ids contains include.id -%}
+    {%- assign related_posts = related_posts | push: video_post -%}
+  {%- endif -%}
+{%- endfor -%}

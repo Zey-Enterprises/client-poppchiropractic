@@ -1,0 +1,17 @@
+{%- assign reference_ids = '' | split: ',' -%}
+{%- if page.citations -%}
+  {%- assign reference_ids = page.citations | map: 'id' -%}
+{%- endif -%}
+{%- for scope in page.citation_scopes -%}
+  {%- assign scope_ids = scope[1] | map: 'id' -%}
+  {%- assign reference_ids = reference_ids | concat: scope_ids -%}
+{%- endfor -%}
+{%- assign reference_ids = reference_ids | uniq -%}
+{%- if reference_ids.size > 0 -%}
+<script type="application/json" data-citation-sources>{
+  {%- for id in reference_ids -%}
+    {{ id | jsonify }}:{{ site.data.citation[id] | jsonify | replace: '<', '\u003c' }}{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+}</script>
+<script src="{{ '/assets/js/annotations.js' | relative_url }}" defer></script>
+{%- endif -%}

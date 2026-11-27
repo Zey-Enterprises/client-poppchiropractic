@@ -1,0 +1,8 @@
+# Before approving an integration, verify the provider account, recipient and privacy terms.
+# Live integrations also require integrations_live: true in _config.yml.
+contact:
+  status: demo
+  endpoint:
+newsletter:
+  status: demo
+  endpoint:

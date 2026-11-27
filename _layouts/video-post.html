@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% assign video_id = page.video_ids.first | default: page.videos.first.id %}
+{% assign video_record = page.videos | where: 'id', video_id | first %}
+{% unless video_record %}{% assign video_record = site.data.videos | where: 'id', video_id | first %}{% endunless %}
+{% assign authored_text = content | strip_html | normalize_whitespace | strip %}
+<article class="wrap reading video-post">
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+    <time datetime="{% if page.published_utc %}{{ page.published_utc | escape }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}">{{ page.displayed_date | default: page.date | date: "%B %-d, %Y" }}</time>
+  </header>
+  {% include reading-tools.html video_id=video_id video_title=video_record.title %}
+  {% if authored_text == empty and video_record.description and video_record.description != empty %}
+    <div class="video-intro">
+      <p>{{ video_record.description | strip | escape | newline_to_br }}</p>
+    </div>
+  {% endif %}
+  <div class="video-content">{{ content }}</div>
+  {% include video-timecodes.html record=video_record id=video_id %}
+  {% include related.html %}
+  <p><a href="{{ '/knowledge/videos/' | relative_url }}">Browse the video library</a></p>
+</article>

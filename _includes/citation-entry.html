@@ -1,0 +1,5 @@
+{%- assign citation_scope = include.scope | default: 'references' -%}
+{%- assign citation_label = include.label | append: '' -%}
+{%- assign citation_entries = page.citation_scopes[citation_scope] | default: page.citations -%}
+{%- assign citation_entry = citation_entries | where: 'label', citation_label | first -%}
+{%- assign citation_source = site.data.citation[citation_entry.id] -%}

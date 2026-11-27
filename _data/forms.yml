@@ -1,0 +1,24 @@
+- title: Patient intake
+  url: /patients/patient-intake-form/
+  purpose: Contact, insurance and payment information for new patients.
+  authorization: pending
+  provider_id: "6023003"
+  provider_url: https://form.123formbuilder.com/6023003
+- title: Symptoms history
+  url: /patients/symptoms-form/
+  purpose: A description of your symptoms and when they began.
+  authorization: pending
+  provider_id: "6023006"
+  provider_url: https://form.123formbuilder.com/6023006
+- title: HIPAA documentation
+  url: /patients/hipaa-form/
+  purpose: Notice of Privacy Practices and help acknowledging receipt.
+  authorization: pending
+  provider_id: "6023654"
+  provider_url: https://form.123formbuilder.com/6023654
+- title: Medicare ABN
+  url: /patients/medicare-abn-form/
+  purpose: The practice provides a notice when it applies.
+  authorization: pending
+  provider_id: "6023009"
+  provider_url: https://form.123formbuilder.com/6023009

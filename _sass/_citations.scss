@@ -1,0 +1,88 @@
+.article-content .ifc-annotation--citation {
+  color: var(--rust);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ifc-citation-marker {
+  display: inline-block;
+  font: 700 .66em/1 var(--body);
+  vertical-align: .36em;
+  margin-inline: .08em;
+  padding: .1em .25em;
+  background: #eee2d4;
+}
+.ifc-citation-marker--sep { margin: 0; padding: 0; background: transparent; }
+.ifc-citation-cluster { white-space: nowrap; }
+.article-content .ifc-annotation--citation:is(:hover, :focus-visible, [data-open="true"]) .ifc-citation-marker {
+  background: var(--rust);
+  color: white;
+}
+.ifc-annotations-enhanced .citation-bracket { display: none; }
+.ifc-annotation-layer { position: fixed; inset: 0; z-index: 20; pointer-events: none; }
+.ifc-annotation-layer [hidden] { display: none !important; }
+.ifc-annotation-layer:not([data-open="true"]) { visibility: hidden; }
+.ifc-annotation__popover {
+  position: fixed;
+  top: var(--ifc-annotation-top, 0);
+  left: var(--ifc-annotation-left, 0);
+  width: min(25rem, calc(100vw - 24px));
+  pointer-events: auto;
+}
+.ifc-annotation__popover::before {
+  content: "";
+  position: absolute;
+  inset: -10px 0 auto;
+  height: 10px;
+}
+.ifc-annotation__popover[data-side="above"]::before { inset: auto 0 -10px; }
+.ifc-annotation__card {
+  display: block;
+  max-height: var(--ifc-annotation-max-height, calc(100vh - 24px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--rust);
+  padding: .8rem 1rem 1rem;
+  box-shadow: 0 .4rem 1.4rem #212b2530;
+  font: .95rem/1.48 var(--body);
+}
+.ifc-annotation__eyebrow { display: block; color: var(--rust); font-size: .75rem; font-weight: 700; margin-bottom: .3rem; }
+.ifc-annotation__heading, .ifc-annotation__para { display: block; }
+.ifc-citation-ref__title { color: var(--pine); font-weight: 650; }
+.ifc-annotation__card a, .reference-text a { color: var(--rust); white-space: normal; }
+.ifc-link-icon { margin-left: .2em; }
+.ifc-annotation__close {
+  float: right;
+  min-width: 2rem;
+  min-height: 2rem;
+  margin: 0 0 .3rem .7rem;
+  font: 1.25rem/1 var(--body);
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--pine);
+  cursor: pointer;
+}
+.ifc-annotation__close:hover { background: var(--pine); color: white; }
+.bibliography { list-style: none; padding: 0; margin: .6rem 0 1.25rem; font-size: .93rem; border-top: 1px solid var(--rule); }
+.bibliography-entry { display: grid; grid-template-columns: 2.1em minmax(0, 1fr); gap: .65rem; padding: .56rem .2rem; border-bottom: 1px solid var(--rule); }
+.bibliography-entry:target, .bibliography-entry:has(:target) { background: #eee2d4; outline: 1px solid var(--rust); }
+.bibliography-label { color: var(--rust); font-weight: 650; font-variant-numeric: tabular-nums; }
+.reference-original { display: none; }
+@media print {
+  .ifc-annotation-layer, .reference-short { display: none !important; }
+  .reference-original, .ifc-annotations-enhanced .citation-bracket { display: inline; }
+  .ifc-citation-marker { background: transparent; margin: 0; padding: 0; }
+  .bibliography-entry { break-inside: avoid; }
+}
+@media print {
+  .article-content .table-scroll { overflow: visible; }
+  .article-content .table-scroll table,
+  .article-content .table-scroll:has(th:nth-child(4)) table { min-width: 0; width: 100%; }
+  .article-content table :is(th, td) { padding: .3rem; overflow-wrap: anywhere; }
+  .article-content thead { display: table-header-group; }
+  .article-content tr { break-inside: avoid; }
+}
+
+.ifc-citation-ref__title, .reference-text { white-space: normal; overflow-wrap: anywhere; }

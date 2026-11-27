@@ -1,0 +1,37 @@
+{% include video-records.html %}
+{% assign cards_rendered = 0 %}
+<ul class="video-grid{% if include.limit %} video-grid-preview{% endif %}">
+{% for video_id in video_order %}
+  {% assign video = video_records | where: 'id', video_id | first %}
+  {% if video == nil or video.purpose == 'welcome' %}{% continue %}{% endif %}
+  {% include video-posts.html id=video_id %}
+  {% assign primary = related_posts | first %}
+  {% if primary %}
+    {% assign destination = primary.url | relative_url | append: '#video-' | append: video.id %}
+  {% elsif video.url %}
+    {% assign destination = video.url | relative_url %}
+  {% else %}
+    {% assign destination = 'https://www.youtube.com/watch?v=' | append: video.id %}
+  {% endif %}
+  <li class="video-card" id="video-{{ video.id | escape }}">
+    <a href="{{ destination | escape }}"{% unless primary or video.url %} target="_blank" rel="noopener noreferrer"{% endunless %}>
+      <span class="video-thumb">
+        {% if video.thumbnail %}<img src="{{ video.thumbnail | relative_url }}" alt="" width="512" height="288" loading="lazy">{% endif %}
+        <span class="video-play" aria-hidden="true">▶</span>
+        {% if video.duration %}<span class="video-duration"><span class="visually-hidden">Duration </span>{{ video.duration | escape }}</span>{% endif %}
+      </span>
+      <strong>{{ video.title | escape }}</strong>
+    </a>
+    {% if primary %}{% assign date = primary.displayed_date | default: primary.date %}{% else %}{% assign date = video.knowledge_date %}{% endif %}
+    {% if date %}<time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | date: '%b %-d, %Y' }}</time>{% endif %}
+    {% if related_posts.size > 1 %}
+    <ul class="video-sources">
+      {% for post in related_posts offset:1 %}<li><a href="{{ post.url | relative_url }}#video-{{ video.id | escape }}">{{ post.title | escape }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% unless primary %}{% if video.description %}<p>{{ video.description | escape | newline_to_br }}</p>{% endif %}{% endunless %}
+  </li>
+  {% assign cards_rendered = cards_rendered | plus: 1 %}
+  {% if cards_rendered == include.limit %}{% break %}{% endif %}
+{% endfor %}
+</ul>

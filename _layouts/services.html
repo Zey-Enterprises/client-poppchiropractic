@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<article class="wrap reading">
+  <header>
+    <h1>{{ page.title | escape }}</h1>
+    <p class="lede">{{ page.description | escape }}</p>
+  </header>
+  {{ content }}
+  <section class="hub-section" id="back-recovery-course">
+    <h2>Back recovery course</h2>
+    <p>This course covers self-treatment for back problems. Enrollment is currently unavailable online. Call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a> to ask about current options.</p>
+  </section>
+  <div class="actions">{% include booking.html %}</div>
+  <p id="forms">Preparing for your appointment? <a href="{{ '/patients/#forms' | relative_url }}">See patient forms and Medicare information</a>.</p>
+</article>

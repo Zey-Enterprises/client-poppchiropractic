@@ -1,0 +1,17 @@
+{% assign office = site.data.practice %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": {{ site.title | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "telephone": {{ office.phone_href | jsonify }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ office.street | jsonify }},
+    "addressLocality": {{ office.city | jsonify }},
+    "addressRegion": {{ office.state | jsonify }},
+    "postalCode": {{ office.zip | jsonify }}
+  }
+}
+</script>

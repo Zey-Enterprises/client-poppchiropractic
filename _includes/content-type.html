@@ -1,0 +1,4 @@
+{%- if include.item.content_kind == 'video' or include.item.video -%}Video
+{%- elsif include.item.collection == 'posts' -%}Article
+{%- else -%}{{ include.item.content_type | default: "Page" }}
+{%- endif -%}

@@ -1,0 +1,18 @@
+- label: Approach
+  url: /approach/
+  section: /approach/
+- label: Services
+  url: /care/services/
+  section: /care/
+- label: Knowledge base
+  url: /knowledge/
+  section: /knowledge/
+- label: Wellness resources
+  url: /wellness/
+  section: /wellness/
+- label: For patients
+  url: /patients/
+  section: /patients/
+- label: FAQ
+  url: /knowledge/faq/
+  section: /knowledge/faq/

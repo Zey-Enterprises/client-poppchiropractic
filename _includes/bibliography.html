@@ -1,0 +1,17 @@
+{% assign bibliography_scope = include.scope | default: 'references' %}
+{% assign bibliography_entries = page.citation_scopes[bibliography_scope] | default: page.citations %}
+<ol class="bibliography" role="list" aria-label="Citations{% if include.scope %} for {{ include.scope | replace: '-', ' ' | escape }}{% endif %}">
+{% for entry in bibliography_entries %}
+  {% assign source = site.data.citation[entry.id] %}
+  {% assign reference_title = entry.title | default: source.title %}
+  {% capture additional_links %}{% for link in source.links %} <a href="{{ link.url | escape }}" target="_blank" rel="noopener noreferrer">{{ link.label | escape }}</a>{% endfor %}{% endcapture %}
+  <li class="bibliography-entry" id="ref-{{ bibliography_scope | escape }}-{{ entry.label | escape }}" value="{{ entry.label | escape }}">
+    <span class="bibliography-label">[{{ entry.label | escape }}]</span>
+    <span{% if entry.anchor %} id="{{ entry.anchor | escape }}"{% endif %} class="reference-text">{{ reference_title | escape -}}
+    {%- if entry.links_before_source %}{{ additional_links }}{% endif -%}
+    {%- if source.url %} <a href="{{ source.url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="Source for {{ reference_title | escape }}"><span class="reference-original">{{ entry.url_label | default: source.url | escape }}</span><span class="reference-short" aria-hidden="true">Source ↗</span></a>{% endif -%}
+    {%- unless entry.links_before_source %}{{ additional_links }}{% endunless -%}
+    </span>
+  </li>
+{% endfor %}
+</ol>

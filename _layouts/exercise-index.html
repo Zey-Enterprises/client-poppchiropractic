@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<section class="wrap hub">
+  <header class="hub-intro">
+    <h1>{{ page.title | escape }}</h1>
+    {{ content }}
+    <a href="{{ '/knowledge/#exercises' | relative_url }}">Back to the knowledge base</a>
+  </header>
+  <section class="hub-section">
+    <h2>Exercise protocols</h2>
+    {% include exercise-library.html %}
+  </section>
+</section>

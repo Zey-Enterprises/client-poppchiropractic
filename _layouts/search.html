@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<section class="wrap reading" data-search-index="{{ '/search-index.json' | relative_url }}">
+  <h1>Search</h1>
+  {% include search-form.html %}
+  <p id="search-status" role="status"></p>
+  <ol id="search-results" class="search-results"></ol>
+  <noscript><p>Search requires JavaScript. Browse the <a href="{{ '/knowledge/' | relative_url }}">Knowledge Base</a>.</p></noscript>
+</section>
+<script defer src="{{ '/assets/js/search.js' | relative_url }}"></script>

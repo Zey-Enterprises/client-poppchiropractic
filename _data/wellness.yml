@@ -1,0 +1,27 @@
+- id: movement
+  title: Movement and rehabilitation equipment
+  description: Equipment for balance, rotation, rope walking and mobilization.
+  related:
+    label: Browse illustrated exercise protocols
+    url: /knowledge/#exercises
+- id: light
+  title: Lighting and visual environment
+  description: Displays, indoor bulbs, red-light devices and ultraviolet lamps.
+- id: sleep
+  title: Sleep and self-care
+  description: Products for sleep, self-massage and other personal care.
+- id: nutrition
+  title: Nutrition and supplements
+  description: Product labels and manufacturer information for foods and supplements.
+- id: water
+  title: Hydration and water technologies
+  description: Deuterium-depleted drinking water and equipment for making hydrogen water.
+- id: local
+  title: Local providers and facilities
+  description: Casper-area massage contacts and fitness facilities.
+- id: research
+  title: Research and education
+  description: Independent organizations and reading on exercise, nutrition and health.
+  related:
+    label: Browse guides and articles
+    url: /knowledge/

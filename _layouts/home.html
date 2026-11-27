@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<section class="hero wrap">
+  <div class="hero-type">
+    <p class="location">{{ site.data.practice.city }}, {{ site.data.practice.state }}</p>
+    <h1>{{ page.hero_heading | escape }}</h1>
+    <p class="hero-tagline">{{ page.hero_open }} <em>{{ page.hero_emphasis }}</em> {{ page.hero_close }}</p>
+    <p class="hero-intro">We combine hands-on chiropractic care with exercise and guidance you can use outside the office.</p>
+    <div class="actions">{% include booking.html %}<a class="plain" href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a></div>
+  </div>
+  <figure class="hero-video" id="welcome-video">
+    {% include welcome-player.html %}
+    <figcaption>{{ page.welcome_description | escape }}</figcaption>
+  </figure>
+</section>
+<section class="method-band"><div class="wrap spread">
+  <div><p class="label">Our approach</p><h2>{{ page.method_title }}</h2></div>
+  <div class="statement">{{ content }}<a class="inline-link" href="{{ page.method_url | relative_url }}">Explore the method <span aria-hidden="true">→</span></a></div>
+</div></section>
+<section class="wrap directory">
+  <div class="directory-photo"><img loading="lazy" width="848" height="477" src="{{ '/assets/images/movement.webp' | relative_url }}" alt="Scott demonstrating a walking exercise outside"></div>
+  <div><h2>Find what you need</h2>
+    <a href="{{ '/care/services/' | relative_url }}">Chiropractic services <span aria-hidden="true">→</span></a>
+
+    <a href="{{ '/knowledge/' | relative_url }}">Knowledge base <span aria-hidden="true">→</span></a>
+    <a href="{{ '/patients/' | relative_url }}">For patients <span aria-hidden="true">→</span></a>
+    <a href="{{ '/wellness/' | relative_url }}">Wellness resources <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+{% include home-recent.html %}

@@ -16,3 +16,49 @@ _site/
 # counterproductive to check this file into the repository.
 # Details at https://github.com/github/pages-gem/issues/768
 Gemfile.lock
+
+# Local Codex working data and reference website scrapes
+.codex/
+
+# Private project materials and local development output
+/.agents/
+AGENTS.md
+AGENTS.override.md
+CLAUDE.md
+GEMINI.md
+/.claude/
+/.cursor/
+/.windsurf/
+/docs/
+/DESIGN.md
+/PROJECT_STATUS.md
+/private/
+/reference-implementations/
+/reference-scrape/
+/raw/
+/transcripts/
+/output/
+/test-results/
+/playwright-report/
+/screenshots/
+/diagnostics/
+/tmp/
+/.bundle/
+.DS_Store
+*.log
+*.tmp
+*.swp
+
+# Local configuration and authentication material
+.env
+.env.*
+.envrc
+.direnv/
+.aws/
+.ssh/
+credentials/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx

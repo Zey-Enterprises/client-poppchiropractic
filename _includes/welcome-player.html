@@ -1,0 +1,5 @@
+{% assign welcome = site.data.videos | where: "id", "yzsTkxpkKGs" | first %}
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/{{ welcome.id | escape }}"
+        title="Scott Popp introduces his chiropractic practice" loading="eager"
+        allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>

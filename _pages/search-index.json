@@ -1,0 +1,54 @@
+---
+layout: null
+permalink: /search-index.json
+search: false
+sitemap: false
+---
+{% include search-documents.html %}
+{% assign documents = documents | where_exp: 'item', 'item.search != false' %}
+{% include video-records.html %}
+[
+{% for item in documents %}
+  {% capture type %}{% include content-type.html item=item %}{% endcapture %}
+  {% capture video_metadata %}
+    {% for video_id in item.video_ids %}
+      {% assign video = video_records | where: 'id', video_id | first %}
+      {{ video.title }} {{ video.topic }} {{ video.description }}
+    {% endfor %}
+    {% for video in item.videos %}{{ video.title }} {{ video.topic }} {{ video.description }}{% endfor %}
+  {% endcapture %}
+  {% capture metadata %}{{ video_metadata | normalize_whitespace }} {{ item.description }} {{ item.faq_topic }} {{ item.source_heading }} {{ item.hero_open }} {{ item.hero_emphasis }} {{ item.hero_close }} {{ item.welcome_description }} {{ item.categories | join: ' ' }} {{ item.tags | join: ' ' }} {{ item.topics | join: ' ' }} {{ item.media_titles | join: ' ' }}{% if item.layout == 'patients' %} {{ site.data.forms | map: 'title' | join: ' ' }} {{ site.data.forms | map: 'purpose' | join: ' ' }} First appointment what to bring contact insurance details forms JaneApp Pay Bitcoin {{ site.data.practice.street }} {{ site.data.practice.city }}{% endif %}{% endcapture %}
+  {
+    "title": {{ item.title | jsonify }},
+    "type": {{ type | strip | jsonify }},
+    "url": {{ item.url | relative_url | jsonify }},
+    "metadata": {{ metadata | strip | jsonify }},
+    "body": {{ item.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+{% for video_id in video_order %}
+  {% assign video = video_records | where: 'id', video_id | first %}
+  {% if video == nil or video.purpose == 'welcome' %}{% continue %}{% endif %}
+  {% include video-posts.html id=video_id %}
+  {% assign primary = related_posts | first %}
+  {% if primary.content_kind == 'video' %}{% continue %}{% endif %}
+  {% if primary %}
+    {% assign video_url = primary.url | append: '#video-' | append: video.id %}
+  {% else %}
+    {% assign video_url = '/knowledge/videos/' | append: '#video-' | append: video.id %}
+  {% endif %}
+  ,{"title": {{ video.title | jsonify }}, "type": "Video", "url": {{ video_url | relative_url | jsonify }},
+    "metadata": {{ video.topic | default: "Instructional video" | jsonify }}, "body": {{ video.description | default: "" | jsonify }}}
+{% endfor %}
+{% for resource in site.data.wellness_resources %}
+  {% assign category = site.data.wellness | where: "id", resource.category | first %}
+  {% capture resource_text %}{{ resource.description }} {{ resource.note }}{% endcapture %}
+  ,{
+    "title": {{ resource.title | jsonify }},
+    "type": "Wellness resource",
+    "url": {{ '/wellness/' | relative_url | append: '#' | append: resource.id | jsonify }},
+    "metadata": {{ category.title | jsonify }},
+    "body": {{ resource_text | strip | jsonify }}
+  }
+{% endfor %}
+]

@@ -1,0 +1,6 @@
+<div class="card-grid">
+  {% assign guides = site.pages | where: "content_type", "Guide" | sort: "title" %}
+  {% for guide in guides %}
+  <a class="resource-card" href="{{ guide.url | relative_url }}"><strong>{{ guide.title | escape }}</strong><span>{{ guide.description | escape }}</span></a>
+  {% endfor %}
+</div>

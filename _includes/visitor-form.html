@@ -1,0 +1,26 @@
+{% assign integration = site.data.integrations[include.kind] %}
+{% assign enabled = false %}
+{% if site.integrations_live == true and integration.status == 'approved' and integration.endpoint %}
+  {% assign enabled = true %}
+{% endif %}
+{% assign prefix = include.kind | prepend: 'visitor-' %}
+<form class="visitor-form" data-visitor-form="{{ include.kind }}" {% if enabled %}method="post" action="{{ integration.endpoint | escape }}"{% if include.kind == 'newsletter' %} target="_blank" rel="noopener noreferrer"{% endif %}{% else %}method="dialog"{% endif %} aria-describedby="{{ prefix }}-help">
+  <p id="{{ prefix }}-help">
+  {% if include.kind == 'contact' %}For general questions. Please leave out symptoms, medical history, insurance information and other sensitive details.
+  {% else %}Get practice news and updates by email. You can unsubscribe from any newsletter. See our <a href="{{ '/privacy/' | relative_url }}">privacy policy</a>.{% endif %}
+  {% if enabled == false and include.kind == 'contact' %}<strong>For help with a general question, call <a href="tel:{{ site.data.practice.phone_href }}">{{ site.data.practice.phone }}</a>.</strong>{% endif %}
+  </p>
+  <fieldset{% unless enabled %} data-demo-fields{% endunless %}>
+    {% if include.kind == 'contact' %}
+    <label>Your name <input {% if enabled %}name="name"{% endif %} required maxlength="100" autocomplete="{% if enabled %}name{% else %}off{% endif %}"></label>
+    {% endif %}
+    <label>Email address <input type="email" {% if enabled %}name="email"{% endif %} required maxlength="254" autocomplete="{% if enabled %}email{% else %}off{% endif %}"></label>
+    {% if include.kind == 'contact' %}
+    <label>General question <textarea {% if enabled %}name="message"{% endif %} required maxlength="1500" rows="4"></textarea></label>
+    {% else %}
+    {% if enabled %}<input type="hidden" name="embed" value="1">{% endif %}
+    {% endif %}
+    <button type="submit" class="button"{% unless enabled %} data-preview-form{% endunless %}>{% if enabled %}{% if include.kind == 'contact' %}Send general question{% else %}Continue to signup{% endif %}{% elsif include.kind == "newsletter" %}Subscribe{% else %}Send general question{% endif %}</button>
+  </fieldset>
+  <p class="visitor-status{% if include.kind == 'newsletter' and enabled == false %} newsletter-feedback{% endif %}" role="status"></p>
+</form>

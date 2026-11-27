@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<section class="wrap hub">
+  <header class="hub-intro">
+    <h1>{{ page.title | escape }}</h1>
+    <p class="lede">Find guides, illustrated exercises, articles and movement demonstrations.</p>
+    {% include search-form.html %}
+  </header>
+  <nav class="section-links" aria-label="On this page">
+    <a href="#guides">Guides</a><a href="#exercises">Exercises</a><a href="#articles">Articles</a><a href="#videos">Video library</a><a href="#topics">Topics</a>
+    <a href="{{ '/knowledge/faq/' | relative_url }}">Frequently asked questions</a>
+  </nav>
+  <section class="hub-section" id="guides">
+    <h2>Guides</h2>
+    {% include guide-cards.html %}
+    <p><a class="inline-link" href="{{ '/knowledge/guides/' | relative_url }}">Browse all guides</a></p>
+  </section>
+  <section class="hub-section" id="exercises">
+    <h2>Exercise protocols</h2>
+    <p>Browse Poppkinetic protocols by body area or movement topic. Complete protocols include step-by-step instructions, illustrations and a print option.</p>
+    {% include exercise-library.html %}
+  </section>
+  <section class="hub-section" id="articles">
+    <h2>Articles</h2>
+    <p>Read articles on health and research, or browse by category, tag or publication month.</p>
+    {% assign recent = site.posts | where_exp: "post", "post.content_kind != 'video'" | slice: 0, 5 %}
+    {% include article-list.html posts=recent %}
+    <a class="inline-link" href="{{ '/knowledge/articles/' | relative_url }}">Browse all articles</a>
+  </section>
+  <section class="hub-section" id="videos">
+    <h2>Video library</h2>
+    <p>Watch exercise demonstrations and explore the Expansion Method in practice.</p>
+    {% include video-directory.html limit=3 %}
+    <a class="inline-link" href="{{ '/knowledge/videos/' | relative_url }}">Browse the video library</a>
+  </section>
+  <section class="hub-section" id="topics">
+    <h2>Browse by topic</h2>
+    <ul class="section-links">
+      {% assign categories = site.categories | sort %}
+      {% for category in categories %}
+      <li><a href="{{ '/knowledge/articles/' | relative_url }}?category={{ category[0] | url_encode }}">{{ category[0] | escape }}</a></li>
+      {% endfor %}
+    </ul>
+    <p><a href="{{ '/knowledge/articles/' | relative_url }}?focus=tag">Browse topics and tags</a> · <a href="{{ '/wellness/' | relative_url }}">Wellness resources</a></p>
+  </section>
+</section>

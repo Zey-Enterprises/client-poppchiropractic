@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="wrap reading protocol">
+  {% if page.source_heading %}<p class="protocol-series">{{ page.source_heading | escape }}</p>{% endif %}
+  <h1 class="protocol-screen-title">{{ page.title | escape }}</h1>
+  <h1 class="protocol-print-title">{{ page.print_title | default: page.title | escape }}</h1>
+  {% include reading-tools.html pdf=page.original_pdf %}
+  <div class="protocol-content">{{ content }}</div>
+  <p class="protocol-actions"><a href="{{ '/knowledge/#exercises' | relative_url }}">Browse all exercise protocols</a></p>
+  {% include related.html %}
+  <p class="print-source">{{ site.title }}<br>Web page <a href="{{ page.url | absolute_url }}">{{ page.url | absolute_url }}</a><br>Original document <a href="{{ page.source_pdf }}">{{ page.source_pdf }}</a></p>
+</article>

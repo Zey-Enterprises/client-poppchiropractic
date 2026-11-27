@@ -1,0 +1,12 @@
+{%- assign video_records = site.data.videos -%}
+{%- for video_post in site.posts -%}
+  {%- if video_post.videos -%}{%- assign video_records = video_records | concat: video_post.videos -%}{%- endif -%}
+{%- endfor -%}
+{%- assign catalog_ids = video_records | map: 'id' -%}
+{%- assign video_order = '' | split: ',' -%}
+{%- for video_post in site.posts -%}
+  {%- assign declared_ids = video_post.videos | map: 'id' -%}
+  {%- if video_post.video_ids -%}{%- assign declared_ids = video_post.video_ids | concat: declared_ids -%}{%- endif -%}
+  {%- assign video_order = video_order | concat: declared_ids -%}
+{%- endfor -%}
+{%- assign video_order = video_order | concat: catalog_ids | uniq -%}

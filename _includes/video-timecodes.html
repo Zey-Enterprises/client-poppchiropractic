@@ -1,0 +1,45 @@
+{%- assign watch_url = 'https://www.youtube.com/watch?v=' | append: include.id -%}
+{%- assign faq_entries = site.pages | where: 'content_type', 'FAQ' -%}
+{%- capture passages -%}
+  {%- for entry in faq_entries -%}
+    {%- assign times = entry.faq_videos | where: 'id', include.id -%}
+    {%- if entry.faq_video.id == include.id -%}
+      {%- assign times = times | push: entry.faq_video -%}
+    {%- endif -%}
+    {%- for source in times -%}
+      <li><a href="{{ watch_url | escape }}&amp;t={{ source.seconds }}s" target="_blank" rel="noopener noreferrer">{{ source.timestamp | escape }}</a> · <a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></li>
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- capture related_questions -%}
+  {%- for entry in faq_entries -%}
+    {%- assign source_urls = entry.faq_sources | map: 'url' -%}
+    {%- assign timed_ids = entry.faq_videos | map: 'id' -%}
+    {%- if source_urls contains page.url and entry.faq_video.id != include.id -%}
+      {%- unless timed_ids contains include.id -%}
+        <li><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></li>
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{% if include.record.chapters or include.record.transcript_archived or passages != empty %}
+<details class="video-navigation">
+  <summary>{% if include.record.chapters or passages != empty %}Video timecodes{% if include.record.transcript_archived %} and captions{% endif %}{% else %}Captions and transcript{% endif %}</summary>
+  {% if include.record.chapters %}
+  <ul>
+    {% for chapter in include.record.chapters %}
+    {% assign minutes = chapter.seconds | divided_by: 60 %}
+    {% assign seconds = chapter.seconds | modulo: 60 %}
+    <li><a href="{{ watch_url | escape }}&amp;t={{ chapter.seconds }}s" target="_blank" rel="noopener noreferrer">{{ minutes }}:{% if seconds < 10 %}0{% endif %}{{ seconds }} · {{ chapter.title | escape }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if passages != empty %}<ul>{{ passages }}</ul>{% endif %}
+  {% if include.record.transcript_archived %}
+  <p><a href="{{ watch_url | escape }}" target="_blank" rel="noopener noreferrer">Open on YouTube for captions and transcript options</a></p>
+  {% endif %}
+</details>
+{% endif %}
+{% if related_questions != empty %}
+<aside><h2>Related questions</h2><ul>{{ related_questions }}</ul></aside>
+{% endif %}

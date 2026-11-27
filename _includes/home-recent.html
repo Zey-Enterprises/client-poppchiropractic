@@ -1,0 +1,65 @@
+{% include video-records.html %}
+{% assign dated_resources = site.pages | where_exp: "resource", "resource.knowledge_date != nil" %}
+{% assign candidates = site.posts | concat: dated_resources %}
+{% assign standalone_videos = site.data.videos | where: 'purpose', 'standalone' | where_exp: "video", "video.knowledge_date != nil" %}
+{% assign newest = site.time | date: '%s' | plus: 0 %}
+{% assign cutoff = newest | minus: 31536000 %}
+{%- capture ordered -%}
+  {%- for item in candidates -%}
+    {%- assign published = item.knowledge_date | default: item.date -%}
+    {%- assign timestamp = published | date: '%s' | plus: 0 -%}
+    {%- if timestamp <= newest -%}{{ timestamp }}|{{ item.url }};{%- endif -%}
+  {%- endfor -%}
+  {%- for video in standalone_videos -%}
+    {%- assign timestamp = video.knowledge_date | date: '%s' | plus: 0 -%}
+    {%- if timestamp <= newest -%}{{ timestamp }}|/knowledge/videos/#video-{{ video.id }};{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{% assign latest = ordered | strip | split: ';' | sort | reverse %}
+{% assign latest_timestamp = latest.first | split: '|' | first | plus: 0 %}
+<section class="wrap hub home-knowledge">
+  {% if latest.size > 0 %}
+    {% if latest_timestamp >= cutoff %}
+      <h2>Recently added to the knowledge base</h2>
+    {% else %}
+      <h2>Latest from the knowledge base</h2>
+    {% endif %}
+    <div class="card-grid">
+    {% for record in latest limit: 3 %}
+      {% assign parts = record | split: '|' %}
+      {% assign timestamp = parts.first | plus: 0 %}
+      {% if latest_timestamp >= cutoff and timestamp < cutoff %}{% break %}{% endif %}
+      {% assign path = parts.last %}
+      {% if path contains '/knowledge/videos/#video-' %}
+        {% assign id = path | split: '#video-' | last %}
+        {% assign item = standalone_videos | where: "id", id | first %}
+        {% assign type = 'Video' %}
+      {% else %}
+        {% assign item = candidates | where: "url", path | first %}
+        {% capture type %}{% include content-type.html item=item %}{% endcapture %}
+      {% endif %}
+      {% assign thumbnail = item.image | default: item.library_image %}
+      {% if item.thumbnail %}
+        {% assign thumbnail = item.thumbnail %}
+      {% elsif item.video_ids or item.videos %}
+        {% assign local_video_ids = item.videos | map: 'id' %}
+        {% assign video_id = item.video_ids | first | default: local_video_ids.first %}
+        {% assign video = video_records | where: 'id', video_id | first %}
+        {% if item.content_kind == 'video' or thumbnail == nil %}
+          {% assign thumbnail = video.thumbnail | default: thumbnail %}
+        {% endif %}
+      {% endif %}
+      {% assign date = item.knowledge_date | default: item.displayed_date | default: item.date %}
+      <a class="resource-card latest-card" href="{{ path | relative_url }}">
+        {% if thumbnail %}<img src="{{ thumbnail | relative_url }}" width="480" height="270" loading="lazy" alt="">{% endif %}
+        <small>{{ type | strip | escape }}</small>
+        <strong>{{ item.title | escape }}</strong>
+        <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date | date: '%b %-d, %Y' }}</time>
+      </a>
+    {% endfor %}
+    </div>
+  {% else %}
+    <h2>Explore the knowledge base</h2>
+  {% endif %}
+  <a class="inline-link" href="{{ '/knowledge/' | relative_url }}">Browse the knowledge base</a>
+</section>

@@ -1,0 +1,6 @@
+{%- include citation-entry.html scope=include.scope label=include.label -%}
+{%- if citation_source -%}
+<a class="ifc-annotation--citation" href="#ref-{{ citation_scope | escape }}-{{ citation_label | escape }}" data-annotation data-annotation-trigger data-annotation-kind="citation" data-citation-scope="{{ citation_scope | escape }}" data-citation-label="{{ citation_label | escape }}" data-source-id="{{ citation_entry.id | escape }}"{% if citation_entry.title %} data-citation-title="{{ citation_entry.title | escape }}"{% endif %} aria-label="Citation {{ citation_label | escape }} for {{ citation_entry.title | default: citation_source.title | escape }}"><span class="ifc-citation-marker"><span class="citation-bracket">[</span>{{ citation_label | escape }}<span class="citation-bracket">]</span></span></a>
+{%- else -%}
+[{{ citation_label | escape }}]
+{%- endif -%}

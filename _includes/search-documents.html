@@ -1,0 +1,5 @@
+{%- assign documents = site.pages | concat: site.posts
+  | where_exp: 'item', 'item.title != nil'
+  | where_exp: 'item', 'item.published != false'
+  | where_exp: 'item', 'item.hidden != true'
+  | where_exp: 'item', 'item.layout != "redirect"' -%}
